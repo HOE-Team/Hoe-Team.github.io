@@ -1,45 +1,42 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MCSEasy - Minecraft 简易开服程序</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="theme-toggle.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOE Team</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="home">
-  <div class="page-wrapper">
-    <header class="home-header">
-      <div class="top-bar container">
-        <img src="assets/logo.ico" alt="MCSEasy Logo" class="logo" />
-        <button id="theme-toggle" aria-label="切换主题">
-          <img src="assets/light.svg" alt="Light Mode" id="light-icon" />
-          <img src="assets/dark.svg" alt="Dark Mode" id="dark-icon" />
-        </button>
-      </div>
-      <div class="container center">
-        <h1>欢迎使用 <span class="highlight">MCSEasy</span></h1>
-        <p class="tagline">轻松部署并监视你的 Minecraft 服务器</p>
-        <nav class="nav-wrapper">
-          <div class="nav">
-            <a href="introduction.html" class="btn">项目介绍</a>
-            <a href="download.html" class="btn">下载</a>
-            <a href="acknowledgement.html" class="btn">鸣谢</a>
-            <a href="https://github.com/GoldenHoe/MCSEasy" class="btn secondary" target="_blank">在GitHub查看项目</a>
-          </div>
-        </nav>
+<body>
 
-        <div class="intro-image">
-          <img src="images/intro.png" alt="MCSEasy 程序预览图" />
-        </div>
-      </div>
+    <header class="top-app-bar">
+        <a href="https://HOE-Team.github.io" class="logo">
+            <img src="img/logo.png" alt="LOGO">
+        </a>
+        <a href="https://github.com/HOE-Team" class="github-icon">
+            <img src="svg/github.svg" class="white-icon" alt="GitHub">
+        </a>
     </header>
-  </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2024-2025 GoldenHoe & HOE Software Team · MIT License</p>
-    </div>
-  </footer>
+    <main class="content-container">
+        <div class="text-column">
+            <h1 class="title">HOE Team</h1>
+            <div class="description-group">
+                <p class="filled-text">用代码构建</p>
+                <p class="typewriter-container">
+                    <span id="typewriter" class="outline-text"></span>
+                </p>
+                <p class="filled-text">的技术世界</p>
+            </div>
+        </div>
+
+        <div class="action-button">
+            <a href="about.html" class="learn-more">
+                了解更多
+                <img src="svg/arrow_forward.svg" class="white-icon arrow" alt="Arrow">
+            </a>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
