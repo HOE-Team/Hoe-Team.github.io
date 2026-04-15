@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOE Team</title>
     <style>
-        /* 修正后的字体定义 */
+        /* 字体定义 - 修正为 tree 命令显示的连字符路径 */
         @font-face {
             font-family: 'Poppins-Bold';
             src: url('fonts/Poppins-Bold.ttf') format('truetype');
@@ -32,6 +32,7 @@
             flex-direction: column;
         }
 
+        /* 顶部导航栏 */
         .top-app-bar {
             height: 64px;
             padding: 0 32px;
@@ -45,13 +46,23 @@
             cursor: pointer;
         }
 
-        .white-icon {
+        /* GitHub 图标样式 - 移除了 filter: invert(1) */
+        .github-icon img {
             width: 32px;
             height: 32px;
-            filter: invert(1);
             transition: opacity 0.3s;
         }
 
+        .github-icon img:hover {
+            opacity: 0.8;
+        }
+
+        /* 右侧箭头图标依然保持白色反色 */
+        .white-icon {
+            filter: invert(1);
+        }
+
+        /* 主体内容布局 */
         .content-container {
             flex: 1;
             display: flex;
@@ -78,6 +89,7 @@
             line-height: 1.6;
         }
 
+        /* 描边文字 (Outline) */
         .outline-text {
             color: transparent;
             -webkit-text-stroke: 1.2px #FFFFFF;
@@ -92,6 +104,7 @@
             50% { border-color: transparent; }
         }
 
+        /* 了解更多按钮 */
         .learn-more {
             text-decoration: none;
             color: #FFFFFF;
@@ -107,6 +120,12 @@
             transform: translateX(8px);
         }
 
+        .arrow {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* 移动端适配 */
         @media (max-width: 900px) {
             .content-container {
                 flex-direction: column;
@@ -123,10 +142,10 @@
 
     <header class="top-app-bar">
         <a href="https://HOE-Team.github.io" class="logo">
-            <img src="img/hoe-team.png" alt="LOGO">
+            <img src="svg/hoe-team.svg" alt="HOE Team Logo">
         </a>
         <a href="https://github.com/HOE-Team" class="github-icon">
-            <img src="svg/github.svg" class="white-icon" alt="GitHub">
+            <img src="svg/github.svg" alt="GitHub">
         </a>
     </header>
 
