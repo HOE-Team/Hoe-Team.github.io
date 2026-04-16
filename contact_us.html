@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - HOE Team</title>
+    <style>
+        /* 1. 字体定义 */
+        @font-face {
+            font-family: 'Poppins-Bold';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+        @font-face {
+            font-family: 'Poppins-Medium';
+            src: url('fonts/Poppins-Medium.ttf') format('truetype');
+            font-weight: 500;
+        }
+
+        /* 2. 全局样式 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Poppins-Medium', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 3. TopAppBar */
+        .top-app-bar {
+            height: 64px;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 30px; cursor: pointer; }
+        .github-icon img { width: 32px; height: 32px; transition: opacity 0.3s; }
+        .github-icon img:hover { opacity: 0.8; }
+
+        /* 4. 主体内容容器 */
+        .contact-content {
+            padding: 40px 10% 20px 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .header-group { margin-bottom: 10px; }
+        .page-title { font-family: 'Poppins-Bold', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); }
+        .page-subtitle { font-size: 1.2rem; color: #AAAAAA; margin-top: 10px; }
+
+        /* 5. 联系项样式 */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-label {
+            font-family: 'Poppins-Bold', sans-serif;
+            font-size: 1.5rem;
+            color: #FFFFFF;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #E0E0E0;
+        }
+
+        .contact-link {
+            color: #FFFFFF;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* 分割线 */
+        .divider {
+            height: 1px;
+            background-color: #333333;
+            width: 100%;
+            max-width: 600px;
+            margin: 10px 0;
+        }
+
+        /* 6. 底部导航 */
+        .footer-nav {
+            margin-top: auto; /* 推到底部 */
+            padding: 40px 10%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-top: 1px solid #222;
+            width: 100%;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease, opacity 0.2s;
+        }
+
+        .nav-link:hover { opacity: 0.7; }
+        .nav-link.back:hover { transform: translateX(-8px); }
+
+        .white-icon {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .contact-content { padding-left: 6%; padding-right: 6%; }
+            .footer-nav { padding-left: 6%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-app-bar">
+        <a href="https://HOE-Team.github.io" class="logo">
+            <img src="svg/hoe-team.svg" alt="HOE Team Logo">
+        </a>
+        <a href="https://github.com/HOE-Team" class="github-icon">
+            <img src="svg/github.svg" alt="GitHub">
+        </a>
+    </header>
+
+    <main class="contact-content">
+        <div class="header-group">
+            <h1 class="page-title">联系我们</h1>
+            <p class="page-subtitle">你可以通过如下途径联系HOE Team</p>
+        </div>
+
+                <div class="contact-section">
+            <p class="contact-label">邮箱</p>
+            <p class="contact-text">
+                <a href="mailto:hoe_software_team@outlook.com" class="contact-link">
+                    hoe_software_team@outlook.com
+                </a>
+            </p>
+        </div>
+
+
+        <div class="divider"></div>
+
+        <div class="contact-section">
+            <p class="contact-label">QQ群聊</p>
+            <p class="contact-text">
+                OpenDroidChat Bug反馈/交流<br>
+                群号：887447099<br>
+                或者点击 <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=Hmh%2Bn5TsEjE4UDJ6xGQwlARVsLC3irzMQNZI2Y7cspyzzSMzonz0MdyWKvEik%2Fil&busi_data=eyJncm91cENvZGUiOiI4ODc0NDcwOTkiLCJ0b2tlbiI6IjJYMkN6Zy9zdEhBMHpvbkF2VFJnYmJmTjNKSUI1WFZBRmxkYUw2RS9yMXYxcExxT2J2UWhIK1I0SWtaMDZrTGgiLCJ1aW4iOiI4NTc3MTMxNTAifQ%3D%3D&data=b25M2iVn9y5R_6I8WHspYKp6I7cJLHJA3D4JT-RTyuXe-kZXHhRBEx4nSxBWBfU7BBO04ko1pilRDw828mI_Bw&svctype=4&tempid=h5_group_info" class="contact-link">这里</a> 加入群聊
+            </p>
+        </div>
+    </main>
+
+    <footer class="footer-nav">
+        <a href="projects.html" class="nav-link back">
+            <img src="svg/arrow_back.svg" class="white-icon" alt="Back">
+            <span>项目一览</span>
+        </a>
+    </footer>
+
+</body>
+</html>
