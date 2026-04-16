@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - HOE Team</title>
+    <style>
+        /* 1. 字体定义 */
+        @font-face {
+            font-family: 'Poppins-Bold';
+            src: url('fonts/Poppins_Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+        @font-face {
+            font-family: 'Poppins-Medium';
+            src: url('fonts/Poppins_Medium.ttf') format('truetype');
+            font-weight: 500;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Poppins-Medium', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-app-bar {
+            height: 64px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 40px; }
+        .white-icon { width: 30px; height: 30px; filter: invert(1); }
+
+        .about-content {
+            padding: 40px 10% 20px 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .page-title { font-family: 'Poppins-Bold', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); }
+        .section-title {
+            font-family: 'Poppins-Bold', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "";
+            width: 5px;
+            height: 1.2em;
+            background-color: #FFFFFF;
+            margin-right: 15px;
+        }
+
+        .section-content { font-size: 1.1rem; line-height: 1.8; color: #E0E0E0; max-width: 900px; }
+        .text-link { color: #FFFFFF; font-weight: bold; text-decoration: underline; }
+
+        /* 成员列表布局 */
+        .member-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .member-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #111111;
+            padding: 24px;
+            border-radius: 16px;
+            min-width: 320px;
+            flex: 1;
+            max-width: 500px;
+            /* 关键：防止卡片被内部长文本无限撑宽 */
+            overflow: hidden; 
+        }
+        .avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: #222; border: 2px solid #333; flex-shrink: 0; }
+        
+        .member-info { 
+            flex: 1; 
+            min-width: 0; /* 允许 Flex 子项缩小，是换行的前提 */
+        }
+
+        .member-name { 
+            font-family: 'Poppins-Bold', sans-serif; 
+            font-size: 1.25rem; 
+            margin-bottom: 4px; 
+            /* 核心修正：处理名称长度溢出 */
+            inline-size: 100%;
+            overflow-wrap: break-word; /* 允许在长单词内部换行 */
+            word-break: break-all;     /* 针对极长字符串强制断开 */
+        }
+
+        .member-info .member-role {
+            font-size: 0.9rem;
+            color: #AAAAAA;
+            line-height: 1.4;
+        }
+
+        .footer-nav {
+            margin-top: 60px;
+            padding: 40px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #222;
+            width: 100%;
+        }
+        .nav-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF; font-weight: bold; font-size: 1.2rem; transition: 0.2s; }
+        .nav-link:hover { opacity: 0.7; }
+        .nav-link.back:hover { transform: translateX(-8px); }
+        .nav-link.forward:hover { transform: translateX(8px); }
+        .nav-icon { width: 24px; height: 24px; filter: invert(1); }
+
+        @media (max-width: 768px) {
+            .about-content { padding-left: 6%; padding-right: 6%; }
+            .member-card { min-width: 100%; }
+            .footer-nav { flex-direction: column; align-items: flex-start; gap: 24px; padding-left: 6%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-app-bar">
+        <a href="https://HOE-Team.github.io">
+            <img src="img/logo.png" alt="LOGO">
+        </a>
+        <a href="https://github.com/HOE-Team">
+            <img src="svg/github.svg" class="white-icon" alt="GitHub">
+        </a>
+    </header>
+
+    <main class="about-content">
+        <h1 class="page-title">关于我们</h1>
+
+        <section>
+            <h2 class="section-title">简介</h2>
+            <p class="section-content">
+                HOE Team 是由 <a href="https://github.com/GoldenHoe" class="text-link">GoldenHoe</a> 与 <a href="https://github.com/TNTyep520" class="text-link">TNTyep520</a> 共同创立的一个社区驱动的技术团体。我们秉承 <strong>Harmony（和谐）、Openness（开放）、Equality（平等）</strong> 的核心信条，致力于开发实用、高效的工具类应用程序。
+                <br><br>
+                我们的使命是通过代码解决实际问题，并在开放协作中共同成长。
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">成员</h2>
+            <div class="member-list">
+                <div class="member-card">
+                    <img src="https://github.com/GoldenHoe.png" alt="GoldenHoe" class="avatar">
+                    <div class="member-info">
+                        <p class="member-name">GoldenHoe</p>
+                        <p class="member-role">理事会主席，Android/Python CLI软件开发者</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://github.com/TNTyep520.png" alt="TNTyep520" class="avatar">
+                    <div class="member-info">
+                        <p class="member-name">TNTyep520</p>
+                        <p class="member-role">理事会副主席，Rust/Kotlin跨平台软件开发者</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <img src="https://github.com/ZhouboLee.png" alt="Shattered_Starry_Sky(ZhouboLee)" class="avatar">
+                    <div class="member-info">
+                        <p class="member-name">Shattered_Starry_Sky</p>
+                        <p class="member-role">运营总监，Python/Kotlin跨平台软件开发者</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-nav">
+        <a href="index.html" class="nav-link back">
+            <img src="svg/arrow_back.svg" class="nav-icon" alt="Back">
+            <span>主页</span>
+        </a>
+        <a href="projects.html" class="nav-link forward">
+            <span>项目一览</span>
+            <img src="svg/arrow_forward.svg" class="nav-icon" alt="Forward">
+        </a>
+    </footer>
+
+</body>
+</html>
