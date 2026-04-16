@@ -29,7 +29,7 @@
             flex-direction: column;
         }
 
-        /* 3. TopAppBar */
+        /* 3. TopAppBar (对齐整站逻辑) */
         .top-app-bar {
             height: 64px;
             padding: 0 32px;
@@ -47,6 +47,7 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
+            flex: 1; /* 确保内容区撑开，将页脚推至底部 */
         }
 
         .header-group { margin-bottom: 10px; }
@@ -76,7 +77,9 @@
             color: #FFFFFF;
             text-decoration: underline;
             font-weight: bold;
+            transition: opacity 0.2s;
         }
+        .contact-link:hover { opacity: 0.7; }
 
         /* 分割线 */
         .divider {
@@ -89,7 +92,7 @@
 
         /* 6. 底部导航 */
         .footer-nav {
-            margin-top: auto; /* 推到底部 */
+            margin-top: 60px;
             padding: 40px 10%;
             display: flex;
             justify-content: flex-start;
@@ -118,6 +121,17 @@
             filter: invert(1);
         }
 
+        /* 7. 版权声明样式 (与项目页保持一致) */
+        .copyright {
+            padding: 20px 0 40px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666666;
+            font-family: 'Poppins-Medium', sans-serif;
+            line-height: 1.6;
+        }
+        .copyright a { color: #666666; text-decoration: underline; }
+
         /* 移动端适配 */
         @media (max-width: 768px) {
             .contact-content { padding-left: 6%; padding-right: 6%; }
@@ -142,7 +156,7 @@
             <p class="page-subtitle">你可以通过如下途径联系HOE Team</p>
         </div>
 
-                <div class="contact-section">
+        <div class="contact-section">
             <p class="contact-label">邮箱</p>
             <p class="contact-text">
                 <a href="mailto:hoe_software_team@outlook.com" class="contact-link">
@@ -150,7 +164,6 @@
                 </a>
             </p>
         </div>
-
 
         <div class="divider"></div>
 
@@ -169,6 +182,11 @@
             <img src="svg/arrow_back.svg" class="white-icon" alt="Back">
             <span>项目一览</span>
         </a>
+    </footer>
+
+    <footer class="copyright">
+        ©2026 HOE Team. <br>
+        使用了OFL <a href="https://github.com/itfoundry/Poppins/blob/master/OFL.txt"></a> 协议开源的Poppins字体及 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> 开源的 Material Icons 图标
     </footer>
 
 </body>

@@ -47,6 +47,7 @@
             display: flex;
             flex-direction: column;
             gap: 50px;
+            flex: 1; /* 确保内容撑开以推开页脚 */
         }
 
         .header-group { margin-bottom: 20px; }
@@ -125,7 +126,7 @@
             filter: invert(1); /* 反色处理 */
         }
 
-        /* 6. 底部导航 (随内容滚动) */
+        /* 6. 底部导航 */
         .footer-nav {
             margin-top: 60px;
             padding: 40px 10%;
@@ -157,6 +158,17 @@
             filter: invert(1);
         }
 
+        /* 7. 版权声明样式 */
+        .copyright {
+            padding: 20px 0 40px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666666;
+            font-family: 'Poppins-Medium', sans-serif;
+            line-height: 1.6;
+        }
+        .copyright a { color: #666666; text-decoration: underline; }
+
         /* 移动端适配 */
         @media (max-width: 768px) {
             .projects-content { padding-left: 6%; padding-right: 6%; }
@@ -173,7 +185,7 @@
 <body>
 
     <header class="top-app-bar">
-        <a href="https://HOE-Team.github.io" class="logo">
+        <a href="index.html" class="logo">
             <img src="svg/hoe-team.svg" alt="HOE Team Logo">
         </a>
         <a href="https://github.com/HOE-Team" class="github-icon">
@@ -219,7 +231,7 @@
             <div class="project-grid">
                 <div class="project-card">
                     <p class="project-name">OpenDroidChat</p>
-                    <p class="project-desc">适用于Android 6+的LLM（大语言模型） API聊天应用</p>
+                    <p class="project-desc">适用于Android 6+的LLM API聊天应用</p>
                     <div class="link-group">
                         <a href="https://github.com/HOE-Team/OpenDroidChat/releases/latest" class="download-link">
                             下载 <img src="./svg/oin.svg" class="oin-icon" alt="Open">
@@ -263,6 +275,11 @@
             <span>联系我们</span>
             <img src="svg/arrow_forward.svg" class="white-icon" alt="Forward">
         </a>
+    </footer>
+
+    <footer class="copyright">
+        ©2026 HOE Team. <br>
+        使用了OFL <a href="https://github.com/itfoundry/Poppins/blob/master/OFL.txt"></a> 协议开源的Poppins字体及 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> 开源的 Material Icons 图标
     </footer>
 
 </body>

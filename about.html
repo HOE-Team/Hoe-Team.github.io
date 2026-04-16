@@ -58,6 +58,7 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
+            flex: 1; /* 确保内容撑开，让footer在底部 */
         }
 
         .page-title {
@@ -112,6 +113,7 @@
             flex: 1;
             max-width: 500px;
             overflow: hidden; 
+            border: 1px solid #222;
         }
 
         .avatar {
@@ -133,7 +135,6 @@
             font-family: 'Poppins-Bold', sans-serif; 
             font-size: 1.25rem; 
             margin-bottom: 4px; 
-            /* 修正：处理名称长度溢出 */
             inline-size: 100%;
             overflow-wrap: break-word;
             word-break: break-all;
@@ -145,7 +146,7 @@
             line-height: 1.4;
         }
 
-        /* 底部导航链接 - 仅此处使用反色滤镜 */
+        /* 底部导航链接 */
         .footer-nav {
             margin-top: 60px;
             padding: 40px 10%;
@@ -177,6 +178,17 @@
             filter: invert(1);
         }
 
+        /* Copyright 样式 */
+        .copyright {
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666666;
+            font-family: 'Poppins-Medium', sans-serif;
+            line-height: 1.6;
+        }
+        .copyright a { color: #666666; text-decoration: underline; }
+
         @media (max-width: 768px) {
             .about-content { padding-left: 6%; padding-right: 6%; }
             .member-card { min-width: 100%; }
@@ -205,11 +217,11 @@
 
         <section>
             <h2 class="section-title">简介</h2>
-            <p class="section-content">
-                HOE Team 是由 <a href="https://github.com/GoldenHoe" class="text-link">GoldenHoe</a> 与 <a href="https://github.com/TNTyep520" class="text-link">TNTyep520</a> 共同创立的一个社区驱动的技术团体。我们秉承 <strong>Harmony（和谐）、Openness（开放）、Equality（平等）</strong> 的核心信条，致力于开发实用、高效的工具类应用程序。
-                <br><br>
-                我们的使命是通过代码解决实际问题，并在开放协作中共同成长。
-            </p>
+            <div class="section-content">
+                <p>HOE Team 是由 <a href="https://github.com/GoldenHoe" class="text-link">GoldenHoe</a> 与 <a href="https://github.com/TNTyep520" class="text-link">TNTyep520</a> 共同创立的一个社区驱动的技术团体。我们秉承 <strong>Harmony（和谐）、Openness（开放）、Equality（平等）</strong> 的核心信条，致力于开发实用、高效的工具类应用程序。</p>
+                <br>
+                <p>我们的使命是通过代码解决实际问题，并在开放协作中共同成长。</p>
+            </div>
         </section>
 
         <section>
@@ -251,6 +263,11 @@
             <span>项目一览</span>
             <img src="svg/arrow_forward.svg" class="white-icon" alt="Forward">
         </a>
+    </footer>
+
+    <footer class="copyright">
+        ©2026 HOE Team. <br>
+        使用了OFL <a href="https://github.com/itfoundry/Poppins/blob/master/OFL.txt"></a> 协议开源的Poppins字体及 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> 开源的 Material Icons 图标
     </footer>
 
 </body>
