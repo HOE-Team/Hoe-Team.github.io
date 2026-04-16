@@ -10,12 +10,17 @@
             font-family: 'Poppins-Bold';
             src: url('fonts/Poppins-Bold.ttf') format('truetype');
         }
+
         @font-face {
             font-family: 'Poppins-Medium';
             src: url('fonts/Poppins-Medium.ttf') format('truetype');
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             background-color: #000000;
@@ -35,12 +40,27 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo img { height: 30px; cursor: pointer; }
-        .github-icon img { width: 32px; height: 32px; transition: opacity 0.3s; }
-        .github-icon img:hover { opacity: 0.8; }
-        .white-icon { filter: invert(1); }
 
-        /* 3. 主体内容布局 - 桌面端默认居中 */
+        .logo img {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .github-icon img {
+            width: 32px;
+            height: 32px;
+            transition: opacity 0.3s;
+        }
+
+        .github-icon img:hover {
+            opacity: 0.8;
+        }
+
+        .white-icon {
+            filter: invert(1);
+        }
+
+        /* 3. 主体内容布局 */
         .content-container {
             flex: 1;
             display: flex;
@@ -49,10 +69,25 @@
             padding: 0 10%;
         }
 
-        .title { font-family: 'Poppins-Bold', sans-serif; font-size: 5rem; margin-bottom: 16px; }
-        .description-group { font-family: 'Poppins-Medium', sans-serif; font-size: 2.5rem; line-height: 1.6; }
+        .text-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-        /* 描边打字机文字 */
+        .title {
+            font-family: 'Poppins-Bold', sans-serif;
+            font-size: 5rem;
+            margin-bottom: 16px;
+        }
+
+        .description-group {
+            font-family: 'Poppins-Medium', sans-serif;
+            font-size: 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* 描边文字 (Outline) */
         .outline-text {
             color: transparent;
             -webkit-text-stroke: 1.2px #FFFFFF;
@@ -62,10 +97,18 @@
             padding-right: 4px;
             animation: cursor-blink 0.8s infinite;
         }
-        @keyframes cursor-blink { 50% { border-color: transparent; } }
+
+        @keyframes cursor-blink {
+            50% { border-color: transparent; }
+        }
 
         /* 按钮组 */
-        .button-group { display: flex; flex-direction: column; gap: 20px; }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .learn-more {
             text-decoration: none;
             color: #FFFFFF;
@@ -76,29 +119,25 @@
             gap: 12px;
             transition: transform 0.3s ease;
         }
-        .learn-more:hover { transform: translateX(8px); }
-        .arrow { width: 28px; height: 28px; }
 
-        /* 4. 版权信息栏 */
-        .copyright {
-            padding: 20px 0;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #666666;
-            font-family: 'Poppins-Medium', sans-serif;
-            line-height: 1.6;
-            background: #000;
+        .learn-more:hover {
+            transform: translateX(8px);
         }
-        .copyright a { color: #666666; text-decoration: underline; }
 
-        /* 5. 移动端适配：强制上移 */
+        .arrow {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* 4. 移动端适配修正 */
         @media (max-width: 900px) {
             .content-container {
                 flex-direction: column;
-                justify-content: flex-start; /* 核心修改：靠上对齐 */
-                padding-top: 10vh;          /* 核心修改：设置合适的顶部留白 */
+                /* 向上移动的关键：将对齐方式改为居上，并增加顶部内边距 */
+                justify-content: flex-start; 
+                padding-top: 15vh; 
                 align-items: flex-start;
-                gap: 50px;                  /* 增加文字与按钮组的间距 */
+                gap: 40px; /* 缩小文字与按钮组的间距 */
             }
             .title { font-size: 3.5rem; }
             .description-group { font-size: 1.8rem; }
@@ -122,29 +161,37 @@
         <div class="text-column">
             <h1 class="title">HOE Team</h1>
             <div class="description-group">
-                <p>用代码构建</p>
-                <p><span id="typewriter" class="outline-text"></span></p>
-                <p>的技术世界</p>
+                <p class="filled-text">用代码构建</p>
+                <p class="typewriter-container">
+                    <span id="typewriter" class="outline-text"></span>
+                </p>
+                <p class="filled-text">的技术世界</p>
             </div>
         </div>
 
         <div class="button-group">
-            <a href="about.html" class="learn-more">
-                关于我们 <img src="svg/arrow_forward.svg" class="white-icon arrow">
-            </a>
-            <a href="projects.html" class="learn-more">
-                项目一览 <img src="svg/arrow_forward.svg" class="white-icon arrow">
-            </a>
-            <a href="contact_us.html" class="learn-more">
-                联系我们 <img src="svg/arrow_forward.svg" class="white-icon arrow">
-            </a>
+            <div class="action-button">
+                <a href="about.html" class="learn-more">
+                    关于我们
+                    <img src="svg/arrow_forward.svg" class="white-icon arrow" alt="Arrow">
+                </a>
+            </div>
+            
+            <div class="action-button">
+                <a href="projects.html" class="learn-more">
+                    项目一览
+                    <img src="svg/arrow_forward.svg" class="white-icon arrow" alt="Arrow">
+                </a>
+            </div>
+
+            <div class="action-button">
+                <a href="contact_us.html" class="learn-more">
+                    联系我们
+                    <img src="svg/arrow_forward.svg" class="white-icon arrow" alt="Arrow">
+                </a>
+            </div>
         </div>
     </main>
-
-    <footer class="copyright">
-        ©2026 HOE Team. <br>
-        使用了OFL <a href="https://github.com/itfoundry/Poppins/blob/master/OFL.txt">协议开源的Poppins字体</a> 及 <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> 开源的 Material Icons 图标
-    </footer>
 
     <script src="script.js"></script>
 </body>
