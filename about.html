@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>关于我们 - HOE Team</title>
     <style>
-        /* 1. 字体定义 */
+        /* 1. 字体定义 - 与 Index 保持一致 */
         @font-face {
             font-family: 'Poppins-Bold';
-            src: url('fonts/Poppins_Bold.ttf') format('truetype');
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
             font-weight: bold;
         }
         @font-face {
             font-family: 'Poppins-Medium';
-            src: url('fonts/Poppins_Medium.ttf') format('truetype');
+            src: url('fonts/Poppins-Medium.ttf') format('truetype');
             font-weight: 500;
         }
 
@@ -28,23 +28,43 @@
             flex-direction: column;
         }
 
+        /* 顶部导航栏 - 完全对齐 Index 逻辑 */
         .top-app-bar {
             height: 64px;
-            padding: 0 24px;
+            padding: 0 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .logo img { height: 40px; }
-        .white-icon { width: 30px; height: 30px; filter: invert(1); }
 
+        .logo img {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .github-icon img {
+            width: 32px;
+            height: 32px;
+            transition: opacity 0.3s;
+        }
+
+        .github-icon img:hover {
+            opacity: 0.8;
+        }
+
+        /* 主体内容容器 */
         .about-content {
             padding: 40px 10% 20px 10%;
             display: flex;
             flex-direction: column;
             gap: 40px;
         }
-        .page-title { font-family: 'Poppins-Bold', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); }
+
+        .page-title {
+            font-family: 'Poppins-Bold', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+        }
+
         .section-title {
             font-family: 'Poppins-Bold', sans-serif;
             font-size: 1.8rem;
@@ -52,6 +72,7 @@
             display: flex;
             align-items: center;
         }
+
         .section-title::before {
             content: "";
             width: 5px;
@@ -60,8 +81,18 @@
             margin-right: 15px;
         }
 
-        .section-content { font-size: 1.1rem; line-height: 1.8; color: #E0E0E0; max-width: 900px; }
-        .text-link { color: #FFFFFF; font-weight: bold; text-decoration: underline; }
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #E0E0E0;
+            max-width: 900px;
+        }
+
+        .text-link {
+            color: #FFFFFF;
+            font-weight: bold;
+            text-decoration: underline;
+        }
 
         /* 成员列表布局 */
         .member-list {
@@ -69,6 +100,7 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+
         .member-card {
             display: flex;
             align-items: center;
@@ -79,24 +111,32 @@
             min-width: 320px;
             flex: 1;
             max-width: 500px;
-            /* 关键：防止卡片被内部长文本无限撑宽 */
             overflow: hidden; 
         }
-        .avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: #222; border: 2px solid #333; flex-shrink: 0; }
+
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #222;
+            border: 2px solid #333;
+            flex-shrink: 0;
+        }
         
         .member-info { 
             flex: 1; 
-            min-width: 0; /* 允许 Flex 子项缩小，是换行的前提 */
+            min-width: 0; 
         }
 
         .member-name { 
             font-family: 'Poppins-Bold', sans-serif; 
             font-size: 1.25rem; 
             margin-bottom: 4px; 
-            /* 核心修正：处理名称长度溢出 */
+            /* 修正：处理名称长度溢出 */
             inline-size: 100%;
-            overflow-wrap: break-word; /* 允许在长单词内部换行 */
-            word-break: break-all;     /* 针对极长字符串强制断开 */
+            overflow-wrap: break-word;
+            word-break: break-all;
         }
 
         .member-info .member-role {
@@ -105,6 +145,7 @@
             line-height: 1.4;
         }
 
+        /* 底部导航链接 - 仅此处使用反色滤镜 */
         .footer-nav {
             margin-top: 60px;
             padding: 40px 10%;
@@ -114,27 +155,48 @@
             border-top: 1px solid #222;
             width: 100%;
         }
-        .nav-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFFFF; font-weight: bold; font-size: 1.2rem; transition: 0.2s; }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease, opacity 0.2s;
+        }
+
         .nav-link:hover { opacity: 0.7; }
         .nav-link.back:hover { transform: translateX(-8px); }
         .nav-link.forward:hover { transform: translateX(8px); }
-        .nav-icon { width: 24px; height: 24px; filter: invert(1); }
+
+        .white-icon {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+        }
 
         @media (max-width: 768px) {
             .about-content { padding-left: 6%; padding-right: 6%; }
             .member-card { min-width: 100%; }
-            .footer-nav { flex-direction: column; align-items: flex-start; gap: 24px; padding-left: 6%; }
+            .footer-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+                padding-left: 6%;
+            }
         }
     </style>
 </head>
 <body>
 
     <header class="top-app-bar">
-        <a href="https://HOE-Team.github.io">
-            <img src="img/logo.png" alt="LOGO">
+        <a href="https://HOE-Team.github.io" class="logo">
+            <img src="svg/hoe-team.svg" alt="HOE Team Logo">
         </a>
-        <a href="https://github.com/HOE-Team">
-            <img src="svg/github.svg" class="white-icon" alt="GitHub">
+        <a href="https://github.com/HOE-Team" class="github-icon">
+            <img src="svg/github.svg" alt="GitHub">
         </a>
     </header>
 
@@ -170,7 +232,7 @@
                 </div>
 
                 <div class="member-card">
-                    <img src="https://github.com/ZhouboLee.png" alt="Shattered_Starry_Sky(ZhouboLee)" class="avatar">
+                    <img src="https://github.com/ZhouboLee.png" alt="ZhouboLee" class="avatar">
                     <div class="member-info">
                         <p class="member-name">Shattered_Starry_Sky</p>
                         <p class="member-role">运营总监，Python/Kotlin跨平台软件开发者</p>
@@ -182,12 +244,12 @@
 
     <footer class="footer-nav">
         <a href="index.html" class="nav-link back">
-            <img src="svg/arrow_back.svg" class="nav-icon" alt="Back">
+            <img src="svg/arrow_back.svg" class="white-icon" alt="Back">
             <span>主页</span>
         </a>
         <a href="projects.html" class="nav-link forward">
             <span>项目一览</span>
-            <img src="svg/arrow_forward.svg" class="nav-icon" alt="Forward">
+            <img src="svg/arrow_forward.svg" class="white-icon" alt="Forward">
         </a>
     </footer>
 
