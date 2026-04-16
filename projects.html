@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目一览 - HOE Team</title>
+    <style>
+        /* 1. 字体定义 */
+        @font-face {
+            font-family: 'Poppins-Bold';
+            src: url('fonts/Poppins-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+        @font-face {
+            font-family: 'Poppins-Medium';
+            src: url('fonts/Poppins-Medium.ttf') format('truetype');
+            font-weight: 500;
+        }
+
+        /* 2. 全局样式 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Poppins-Medium', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 3. TopAppBar (对齐 Index/About) */
+        .top-app-bar {
+            height: 64px;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img { height: 30px; cursor: pointer; }
+        .github-icon img { width: 32px; height: 32px; transition: opacity 0.3s; }
+        .github-icon img:hover { opacity: 0.8; }
+
+        /* 4. 主体内容容器 */
+        .projects-content {
+            padding: 40px 10% 20px 10%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .header-group { margin-bottom: 20px; }
+        .page-title { font-family: 'Poppins-Bold', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); }
+        .page-subtitle { font-size: 1.2rem; color: #AAAAAA; margin-top: 10px; }
+
+        .section-title {
+            font-family: 'Poppins-Bold', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::before {
+            content: "";
+            width: 5px;
+            height: 1.2em;
+            background-color: #FFFFFF;
+            margin-right: 15px;
+        }
+
+        /* 5. 项目卡片布局 */
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #111111;
+            padding: 28px;
+            border-radius: 16px;
+            min-width: 300px;
+            flex: 1;
+            max-width: 550px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border: 1px solid #222;
+        }
+
+        .project-name {
+            font-family: 'Poppins-Bold', sans-serif;
+            font-size: 1.4rem;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: #BBBBBB;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* 下载链接样式 */
+        .link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .download-link {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+            font-size: 1rem;
+        }
+        .download-link:hover { opacity: 0.7; }
+
+        .oin-icon {
+            width: 18px;
+            height: 18px;
+            filter: invert(1); /* 反色处理 */
+        }
+
+        /* 6. 底部导航 (随内容滚动) */
+        .footer-nav {
+            margin-top: 60px;
+            padding: 40px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #222;
+            width: 100%;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease, opacity 0.2s;
+        }
+
+        .nav-link:hover { opacity: 0.7; }
+        .nav-link.back:hover { transform: translateX(-8px); }
+        .nav-link.forward:hover { transform: translateX(8px); }
+
+        .white-icon {
+            width: 24px;
+            height: 24px;
+            filter: invert(1);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .projects-content { padding-left: 6%; padding-right: 6%; }
+            .project-card { min-width: 100%; }
+            .footer-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+                padding-left: 6%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-app-bar">
+        <a href="https://HOE-Team.github.io" class="logo">
+            <img src="svg/hoe-team.svg" alt="HOE Team Logo">
+        </a>
+        <a href="https://github.com/HOE-Team" class="github-icon">
+            <img src="svg/github.svg" alt="GitHub">
+        </a>
+    </header>
+
+    <main class="projects-content">
+        <div class="header-group">
+            <h1 class="page-title">项目一览</h1>
+            <p class="page-subtitle">HOE Team开发的项目一览。</p>
+        </div>
+
+        <section>
+            <h2 class="section-title">桌面应用</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <p class="project-name">NNETB</p>
+                    <p class="project-desc">（实验性）跨平台、去本地化的工具集应用</p>
+                    <div class="link-group">
+                        <a href="https://github.com/HOE-Team/NNETB/releases/latest" class="download-link">
+                            NNETB For Windows <img src="./svg/oin.svg" class="oin-icon" alt="Open">
+                        </a>
+                        <a href="https://github.com/HOE-Team/NNETB-For-Linux/releases/latest" class="download-link">
+                            NNETB For Linux <img src="./svg/oin.svg" class="oin-icon" alt="Open">
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <p class="project-name">MCSEasy</p>
+                    <p class="project-desc">（技术性归档）操作简单的Minecraft服务器快速部署工具</p>
+                    <div class="link-group">
+                        <a href="https://github.com/HOE-Team/MCSEasy/releases/latest" class="download-link">
+                            下载 <img src="./svg/oin.svg" class="oin-icon" alt="Open">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">移动应用</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <p class="project-name">OpenDroidChat</p>
+                    <p class="project-desc">适用于Android 6+的LLM（大语言模型） API聊天应用</p>
+                    <div class="link-group">
+                        <a href="https://github.com/HOE-Team/OpenDroidChat/releases/latest" class="download-link">
+                            下载 <img src="./svg/oin.svg" class="oin-icon" alt="Open">
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <p class="project-name">Compose Gal</p>
+                    <p class="project-desc">（实验性）使用Jetpack Compose编写Galgame</p>
+                    <div class="link-group">
+                        <a href="https://github.com/HOE-Team/ComposeGal/releases/latest" class="download-link">
+                            下载 <img src="./svg/oin.svg" class="oin-icon" alt="Open">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">娱乐性项目</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <p class="project-name">Void</p>
+                    <p class="project-desc">版本控制模拟器Void（“虚空”）</p>
+                    <div class="link-group">
+                        <a href="https://github.com/HOE-Team/Void/releases/latest" class="download-link">
+                            下载 <img src="./svg/oin.svg" class="oin-icon" alt="Open">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-nav">
+        <a href="about.html" class="nav-link back">
+            <img src="svg/arrow_back.svg" class="white-icon" alt="Back">
+            <span>关于我们</span>
+        </a>
+        <a href="contact_us.html" class="nav-link forward">
+            <span>联系我们</span>
+            <img src="svg/arrow_forward.svg" class="white-icon" alt="Forward">
+        </a>
+    </footer>
+
+</body>
+</html>
