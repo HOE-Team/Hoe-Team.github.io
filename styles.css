@@ -100,9 +100,7 @@ body {
 }
 
 .member-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: block;
 }
 
 .member-card {
@@ -112,11 +110,13 @@ body {
     background: #111111;
     padding: 24px;
     border-radius: 16px;
-    min-width: 320px;
-    flex: 1;
-    max-width: 500px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
     overflow: hidden;
     border: 1px solid #222;
+    margin-bottom: 20px;
 }
 
 .avatar {
