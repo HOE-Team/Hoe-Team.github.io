@@ -159,6 +159,23 @@ body {
     width: 100%;
 }
 
+
+.page-footer {
+    position: fixed;
+    left: 32px;
+    bottom: 24px;
+    z-index: 10;
+    color: #666666;
+    font-size: 0.8rem;
+    font-family: 'Poppins-Medium', sans-serif;
+    letter-spacing: 0.08em;
+    pointer-events: none;
+    padding: 20px 0;
+    text-align: left;
+}
+
+.page-footer a { color: #666666; text-decoration: underline; }
+
 .nav-link {
     display: flex;
     align-items: center;
