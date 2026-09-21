@@ -43,11 +43,13 @@ body {
 }
 
 .top-app-bar {
+    min-height: 64px;
     height: 64px;
     padding: 0 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .logo img {
