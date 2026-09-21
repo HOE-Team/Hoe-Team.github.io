@@ -23,7 +23,6 @@
 
 html, body {
     height: 100%;
-    overflow: hidden;
 }
 
 body {
@@ -33,6 +32,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 .index-page {
