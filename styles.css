@@ -37,9 +37,61 @@ body {
 
 .index-page {
     height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+}
+
+/* 竖屏矮屏 / 横屏手机：允许纵向滚动，优先保证页脚与备案号可见 */
+.index-page.compact-layout {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-y: auto;
+}
+
+/* 矮屏进一步压缩首页间距，让备案号等信息尽量在首屏内可见 */
+.index-page.compact-layout .top-app-bar {
+    min-height: 52px;
+    height: 52px;
+    padding: 0 6%;
+}
+
+.index-page.compact-layout .content-container {
+    padding-top: 2vh;
+    padding-bottom: 10px;
+    gap: 15px;
+}
+
+.index-page.compact-layout .title {
+    font-size: 2.6rem;
+    margin-bottom: 8px;
+}
+
+.index-page.compact-layout .description-group {
+    font-size: 1.45rem;
+    line-height: 1.4;
+}
+
+.index-page.compact-layout .button-group {
+    gap: 10px;
+}
+
+.index-page.compact-layout .learn-more {
+    font-size: 1.05rem;
+}
+
+.index-page.compact-layout .arrow {
+    width: 20px;
+    height: 20px;
+}
+
+.index-page.compact-layout .page-footer {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    padding-top: 6px;
+    padding-bottom: 8px;
 }
 
 .top-app-bar {
@@ -189,7 +241,7 @@ body {
     line-height: 1.6;
 }
 
-.page-footer a { color: #666666; text-decoration: underline; }
+.page-footer a { color: #666666; text-decoration: underline; }
 
 .nav-link {
     display: flex;
@@ -215,7 +267,7 @@ body {
     line-height: 1.6;
 }
 
-.copyright a { color: #666666; text-decoration: underline; }
+.copyright a { color: #666666; text-decoration: underline; }
 
 .content-container {
     flex: 1 1 auto;

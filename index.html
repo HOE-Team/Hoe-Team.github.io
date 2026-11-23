@@ -67,6 +67,25 @@
         <a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2026055612号</a> | <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51012402001840" target="_blank">川公网安备51012402001840号</a>
     </footer>
 
+    <script>
+        // 竖屏矮屏（高度不足）或横屏手机时为首页内容区启用“可滚动”模式，
+        // 避免固定 100vh 的布局把页脚（含备案号）挤到视口之外。
+        (function () {
+            var root = document.documentElement;
+
+            function updateCompactMode() {
+                var shortViewport = window.innerHeight < 700 ||
+                    (window.innerHeight < 900 && window.innerWidth < 480);
+                var landscapePhone = window.innerHeight <= 500;
+                var compact = shortViewport || landscapePhone;
+                root.classList.toggle('compact-layout', compact);
+            }
+
+            updateCompactMode();
+            window.addEventListener('resize', updateCompactMode);
+            window.addEventListener('orientationchange', updateCompactMode);
+        })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
