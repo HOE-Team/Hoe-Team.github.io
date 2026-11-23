@@ -40,6 +40,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .top-app-bar {
@@ -604,6 +605,71 @@ body {
         font-size: 0.72rem;
         line-height: 1.5;
         padding: 6px 6% 8px;
+    }
+}
+
+@media (max-width: 900px) and (max-height: 430px) {
+    .index-page .content-container { gap: 10px; }
+    .index-page .title { font-size: 2.1rem; }
+    .index-page .description-group { font-size: 1.2rem; }
+    .index-page .page-footer { font-size: 0.66rem; }
+}
+
+/* ===== 首页矮屏适配：竖屏手机 / 横屏手机下保证页脚与备案号可见，且与上方内容留出间距 ===== */
+@media (max-height: 820px) {
+    .index-page {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+@media (max-height: 820px) and (max-width: 900px) {
+    .index-page .top-app-bar {
+        min-height: 52px;
+        height: 52px;
+        padding: 0 6%;
+    }
+
+    .index-page .content-container {
+        flex: 0 0 auto;
+        padding-top: 2vh;
+        padding-bottom: 0;
+        gap: 15px;
+    }
+
+    /* 内容区收缩后页脚会紧贴按钮，这里保证垂直方向的呼吸间距 */
+    .index-page .page-footer {
+        margin-top: auto;
+        padding-top: clamp(32px, 8vh, 64px);
+        padding-bottom: calc(14px + env(safe-area-inset-bottom));
+        font-size: 0.72rem;
+        line-height: 1.5;
+    }
+
+    .index-page .title {
+        font-size: 2.6rem;
+        margin-bottom: 8px;
+    }
+
+    .index-page .description-group {
+        font-size: 1.45rem;
+        line-height: 1.4;
+    }
+
+    .index-page .button-group {
+        gap: 10px;
+    }
+
+    .index-page .learn-more {
+        font-size: 1.05rem;
+    }
+
+    .index-page .arrow {
+        width: 20px;
+        height: 20px;
     }
 }
 
